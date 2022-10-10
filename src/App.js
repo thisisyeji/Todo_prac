@@ -87,13 +87,22 @@ function App() {
 
 	const onDelete = useCallback((id) => {
 		setTodos(todos.filter((todo) => todo.id !== id));
+	}, []);
+
+	const onToggle = useCallback((id) => {
+		setTodos(
+			todos.map((todo) =>
+				todo.id === id ? { ...todo, checked: !todo.checked } : todo
+			),
+			[]
+		);
 	});
 
 	return (
 		<>
 			<GlobalStyle />
 			<TodoTemplate>
-				<TodoList todos={todos} onDelete={onDelete} />
+				<TodoList todos={todos} onDelete={onDelete} onToggle={onToggle} />
 				<TodoInsert onInsert={onInsert} />
 			</TodoTemplate>
 		</>

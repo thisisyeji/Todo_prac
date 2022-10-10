@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { FaMinus } from 'react-icons/fa';
-import { MdCheckBoxOutlineBlank } from 'react-icons/md';
+import { MdCheckBoxOutlineBlank, MdCheckBox } from 'react-icons/md';
 
 const List = styled.div`
 	width: 90%;
@@ -51,6 +51,7 @@ const Text = styled.div`
 	justify-content: flex-start;
 	align-items: center;
 	gap: 10px;
+	text-decoration: ${(props) => (props.checked ? 'line-through' : 'none')};
 
 	svg {
 		background: #fff;
@@ -58,11 +59,11 @@ const Text = styled.div`
 	}
 `;
 
-const TodoListItem = ({ todo, onDelete }) => {
+const TodoListItem = ({ todo, onDelete, onToggle }) => {
 	return (
 		<List>
-			<Text className='text'>
-				<MdCheckBoxOutlineBlank />
+			<Text checked={todo.checked} onClick={() => onToggle(todo.id)}>
+				{todo.checked ? <MdCheckBox /> : <MdCheckBoxOutlineBlank />}
 				{todo.text}
 			</Text>
 			<DelBtn onClick={() => onDelete(todo.id)}>

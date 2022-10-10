@@ -11,11 +11,16 @@ const List = styled.div`
 	overflow-y: scroll;
 `;
 
-const TodoList = ({ todos, onDelete }) => {
+const TodoList = ({ todos, onDelete, onToggle }) => {
 	return (
 		<List>
 			{todos.map((todo, index) => (
-				<TodoListItem key={todo.id} todo={todo} onDelete={onDelete} />
+				<TodoListItem
+					key={todo.id}
+					todo={todo}
+					onDelete={onDelete}
+					onToggle={onToggle}
+				/>
 			))}
 		</List>
 	);
