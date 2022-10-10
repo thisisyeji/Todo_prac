@@ -33,10 +33,14 @@ footer, header, hgroup, main, menu, nav, section {
 *[hidden] {
     display: none;
 }
+* {
+box-sizing: border-box;
+}
 body {
   line-height: 1;
   width: 100%;
   height: 100vh;
+  background: #555;
 
   display: flex;
 	justify-content: center;

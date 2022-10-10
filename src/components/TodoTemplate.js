@@ -5,13 +5,13 @@ const TodoHeader = styled.div`
 	position: relative;
 	display: flex;
 	flex-direction: column;
-
 	width: 30vw;
 	min-width: 400px;
 	height: 60vh;
 	border-radius: 10px;
 	overflow: hidden;
 	box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+	background: lightblue;
 
 	title {
 		height: 100px;
