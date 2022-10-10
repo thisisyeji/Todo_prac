@@ -7,7 +7,6 @@ const TodoHeader = styled.div`
 	flex-direction: column;
 	width: 30vw;
 	min-width: 400px;
-	height: 60vh;
 	border-radius: 10px;
 	overflow: hidden;
 	box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
@@ -30,6 +29,7 @@ const TodoHeader = styled.div`
 
 	div {
 		width: 100%;
+		overflow-y: scroll;
 	}
 `;
 

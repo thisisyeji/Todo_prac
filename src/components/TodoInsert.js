@@ -1,11 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 import { FaPlus } from 'react-icons/fa';
+import { useState, useCallback } from 'react';
 
-const InputBox = styled.div`
-	position: absolute;
+const InputBox = styled.form`
+	/* position: absolute;
 	bottom: 0;
-	left: 0;
+	left: 0; */
 	width: 100%;
 	height: 100px;
 	background: #000;
@@ -14,7 +15,7 @@ const InputBox = styled.div`
 
 	input {
 		width: 80%;
-		height: 100%;
+		height: 100px;
 		border: none;
 		outline: none;
 		border-top: 1px solid #eee;
@@ -23,7 +24,7 @@ const InputBox = styled.div`
 
 	button {
 		width: 20%;
-		height: 100%;
+		height: 100px;
 		border: none;
 		outline: none;
 		cursor: pointer;
@@ -43,10 +44,26 @@ const InputBox = styled.div`
 	}
 `;
 
-const TodoInsert = () => {
+const TodoInsert = ({ onInsert }) => {
+	const [value, setValue] = useState('');
+
+	const onChange = useCallback((e) => {
+		setValue(e.target.value);
+	}, []);
+
+	const onSubmit = useCallback(
+		(e) => {
+			onInsert(value);
+			setValue('');
+
+			e.preventDefault();
+		},
+		[onInsert, value]
+	);
+
 	return (
-		<InputBox>
-			<input type='text' />
+		<InputBox onSubmit={onSubmit}>
+			<input type='text' value={value} onChange={onChange} />
 			<button>
 				<FaPlus />
 			</button>

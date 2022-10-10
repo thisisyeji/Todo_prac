@@ -3,12 +3,13 @@ import styled from 'styled-components';
 import { FaMinus } from 'react-icons/fa';
 import { MdCheckBoxOutlineBlank } from 'react-icons/md';
 
-const Lists = styled.li`
+const List = styled.div`
 	width: 90%;
 	border-radius: 5px;
 	background-color: lightyellow;
+	box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
 	padding: 20px 15px;
-	margin: 0 auto;
+	margin: 15px auto;
 	margin-bottom: 15px;
 
 	display: flex;
@@ -57,37 +58,17 @@ const Text = styled.div`
 	}
 `;
 
-const todos = [
-	{
-		id: 1,
-		text: '밥먹기',
-	},
-	{
-		id: 2,
-		text: '잠자기',
-	},
-
-	{
-		id: 3,
-		text: '공부하기',
-	},
-];
-
-const TodoListItem = () => {
+const TodoListItem = ({ todo, onDelete }) => {
 	return (
-		<ul>
-			{todos.map((todo, index) => (
-				<Lists key={todo.id}>
-					<Text className='text'>
-						<MdCheckBoxOutlineBlank />
-						{todo.text}
-					</Text>
-					<DelBtn key={todo.id}>
-						<FaMinus />
-					</DelBtn>
-				</Lists>
-			))}
-		</ul>
+		<List>
+			<Text className='text'>
+				<MdCheckBoxOutlineBlank />
+				{todo.text}
+			</Text>
+			<DelBtn onClick={() => onDelete(todo.id)}>
+				<FaMinus />
+			</DelBtn>
+		</List>
 	);
 };
 

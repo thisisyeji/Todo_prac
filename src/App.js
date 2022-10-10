@@ -2,6 +2,7 @@ import TodoTemplate from './components/TodoTemplate';
 import TodoList from './components/TodoList';
 import TodoInsert from './components/TodoInsert';
 import { createGlobalStyle } from 'styled-components';
+import { useState, useRef, useCallback } from 'react';
 
 const GlobalStyle = createGlobalStyle`
 	html, body, div, span, applet, object, iframe,
@@ -64,12 +65,36 @@ table {
 `;
 
 function App() {
+	const [todos, setTodos] = useState([
+		{
+			id: 1,
+			text: '할 일 입력하기',
+			checked: false,
+		},
+	]);
+
+	const nextId = useRef(2);
+
+	const onInsert = useCallback((text) => {
+		const todo = {
+			id: nextId.current,
+			text,
+			checked: false,
+		};
+		setTodos((todos) => todos.concat(todo));
+		nextId.current += 1;
+	}, []);
+
+	const onDelete = useCallback((id) => {
+		setTodos(todos.filter((todo) => todo.id !== id));
+	});
+
 	return (
 		<>
 			<GlobalStyle />
 			<TodoTemplate>
-				<TodoList />
-				<TodoInsert />
+				<TodoList todos={todos} onDelete={onDelete} />
+				<TodoInsert onInsert={onInsert} />
 			</TodoTemplate>
 		</>
 	);
