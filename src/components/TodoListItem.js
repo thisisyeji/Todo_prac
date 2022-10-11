@@ -66,6 +66,7 @@ const TodoListItem = ({ todo, onDelete, onToggle }) => {
 				{todo.checked ? <MdCheckBox /> : <MdCheckBoxOutlineBlank />}
 				{todo.text}
 			</Text>
+
 			<DelBtn onClick={() => onDelete(todo.id)}>
 				<FaMinus />
 			</DelBtn>
@@ -73,4 +74,4 @@ const TodoListItem = ({ todo, onDelete, onToggle }) => {
 	);
 };
 
-export default TodoListItem;
+export default React.memo(TodoListItem);

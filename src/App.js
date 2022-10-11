@@ -2,7 +2,7 @@ import TodoTemplate from './components/TodoTemplate';
 import TodoList from './components/TodoList';
 import TodoInsert from './components/TodoInsert';
 import { createGlobalStyle } from 'styled-components';
-import { useState, useRef, useCallback } from 'react';
+import { useState, useCallback, useEffect, useRef } from 'react';
 
 const GlobalStyle = createGlobalStyle`
 	html, body, div, span, applet, object, iframe,
@@ -65,17 +65,28 @@ table {
 `;
 
 function App() {
-	const [todos, setTodos] = useState([
-		{
-			id: 1,
-			text: '할 일 입력하기',
-			checked: false,
-		},
-	]);
+	const getTodos = () => {
+		const dummyLists = [
+			{
+				id: 0,
+				text: '할 일 입력하기',
+				checked: false,
+			},
+		];
+		const data = localStorage.getItem('todos');
+		if (data) {
+			return JSON.parse(data);
+		} else {
+			return dummyLists;
+		}
+	};
 
-	const nextId = useRef(2);
+	const [todos, setTodos] = useState(getTodos());
+	const nextId = useRef(todos.length);
 
 	const onInsert = useCallback((text) => {
+		if (!text.trim()) return alert('할 일을 입력하세요.');
+
 		const todo = {
 			id: nextId.current,
 			text,
@@ -86,17 +97,20 @@ function App() {
 	}, []);
 
 	const onDelete = useCallback((id) => {
-		setTodos(todos.filter((todo) => todo.id !== id));
+		setTodos((todos) => todos.filter((todo) => todo.id !== id));
 	}, []);
 
 	const onToggle = useCallback((id) => {
-		setTodos(
+		setTodos((todos) =>
 			todos.map((todo) =>
 				todo.id === id ? { ...todo, checked: !todo.checked } : todo
-			),
-			[]
+			)
 		);
-	});
+	}, []);
+
+	useEffect(() => {
+		localStorage.setItem('todos', JSON.stringify(todos));
+	}, [todos]);
 
 	return (
 		<>
