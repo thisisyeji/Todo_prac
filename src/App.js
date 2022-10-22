@@ -74,6 +74,7 @@ function App() {
 			},
 		];
 		const data = localStorage.getItem('todos');
+
 		if (data) {
 			return JSON.parse(data);
 		} else {
@@ -108,6 +109,12 @@ function App() {
 		);
 	}, []);
 
+	const onUpdate = (id, newToDo) => {
+		setTodos((todos) =>
+			todos.map((todo) => (todo.id === id ? { ...todo, text: newToDo } : todo))
+		);
+	};
+
 	useEffect(() => {
 		localStorage.setItem('todos', JSON.stringify(todos));
 	}, [todos]);
@@ -116,7 +123,12 @@ function App() {
 		<>
 			<GlobalStyle />
 			<TodoTemplate>
-				<TodoList todos={todos} onDelete={onDelete} onToggle={onToggle} />
+				<TodoList
+					todos={todos}
+					onDelete={onDelete}
+					onToggle={onToggle}
+					onUpdate={onUpdate}
+				/>
 				<TodoInsert onInsert={onInsert} />
 			</TodoTemplate>
 		</>
