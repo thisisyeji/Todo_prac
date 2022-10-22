@@ -1,30 +1,37 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const TodoHeader = styled.div`
-	position: relative;
+const ToDoWrapper = styled.section`
+	width: 100%;
+	height: 40vh;
+	background: linear-gradient(
+		0deg,
+		rgba(22, 1, 168, 1) 0%,
+		rgba(163, 1, 251, 1) 100%
+	);
+
 	display: flex;
-	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+`;
+
+const TodoHeader = styled.div`
 	width: 30vw;
 	min-width: 400px;
-	border-radius: 10px;
 	overflow: hidden;
-	box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
-	background: lightblue;
+	background: transparent;
+	margin-top: 500px;
 
-	title {
+	h1 {
 		height: 100px;
-		display: block;
 		color: black;
-		background: #efefef;
+		background: transparent;
+		font-size: 3.5rem;
+		letter-spacing: 5px;
 		color: #fff;
-		text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
-		font-size: 2em;
-		font-weight: 700;
-
-		display: flex;
-		justify-content: center;
-		align-items: center;
+		text-shadow: 3px 3px 8px rgba(255, 255, 255, 0.7);
+		text-align: left;
+		padding: 20px;
 	}
 
 	div {
@@ -35,10 +42,12 @@ const TodoHeader = styled.div`
 
 function TodoTemplate({ children }) {
 	return (
-		<TodoHeader>
-			<title>TODO LIST</title>
-			<div>{children}</div>
-		</TodoHeader>
+		<ToDoWrapper>
+			<TodoHeader>
+				<h1>TO DO</h1>
+				<div>{children}</div>
+			</TodoHeader>
+		</ToDoWrapper>
 	);
 }
 

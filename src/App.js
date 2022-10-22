@@ -3,6 +3,7 @@ import TodoList from './components/TodoList';
 import TodoInsert from './components/TodoInsert';
 import { createGlobalStyle } from 'styled-components';
 import { useState, useCallback, useEffect, useRef } from 'react';
+import './App.css';
 
 const GlobalStyle = createGlobalStyle`
 	html, body, div, span, applet, object, iframe,
@@ -36,16 +37,15 @@ footer, header, hgroup, main, menu, nav, section {
 }
 * {
 box-sizing: border-box;
+font-family: 'Josefin Sans', sans-serif;
 }
+
 body {
   line-height: 1;
   width: 100%;
   height: 100vh;
-  background: #555;
-
-  display: flex;
-	justify-content: center;
-	align-items: center;
+  background: hsl(235, 21%, 11%);
+	font-family: 'Josefin Sans', sans-serif;
 }
 menu, ol, ul {
   list-style: none;
@@ -123,13 +123,13 @@ function App() {
 		<>
 			<GlobalStyle />
 			<TodoTemplate>
+				<TodoInsert onInsert={onInsert} />
 				<TodoList
 					todos={todos}
 					onDelete={onDelete}
 					onToggle={onToggle}
 					onUpdate={onUpdate}
 				/>
-				<TodoInsert onInsert={onInsert} />
 			</TodoTemplate>
 		</>
 	);

@@ -10,12 +10,9 @@ import {
 } from 'react-icons/md';
 
 const List = styled.div`
-	border-radius: 5px;
-	background-color: lightyellow;
-	box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+	background-color: hsl(235, 24%, 19%);
+	border-bottom: 1px solid hsl(237, 14%, 26%);
 	padding: 20px 15px;
-	margin: 15px auto;
-	margin-bottom: 15px;
 
 	display: flex;
 	justify-content: space-between;
@@ -26,8 +23,8 @@ const Btn = styled.button`
 	width: 25px;
 	height: 25px;
 	border-radius: 50%;
-	border: 1px solid navy;
-	background: #fff;
+	border: 1px solid hsl(234, 39%, 85%);
+	background: transparent;
 	margin-right: 5px;
 
 	display: flex;
@@ -47,7 +44,7 @@ const Btn = styled.button`
 	}
 
 	svg {
-		color: navy;
+		color: hsl(234, 39%, 85%);
 		transition: 0.3s;
 	}
 `;
@@ -56,11 +53,13 @@ const Text = styled.div`
 	display: flex;
 	justify-content: flex-start;
 	align-items: center;
+	color: hsl(234, 39%, 85%);
+	font-weight: 300;
 	gap: 10px;
 	text-decoration: ${(props) => (props.checked ? 'line-through' : 'none')};
 
 	svg {
-		background: #fff;
+		color: hsl(233, 14%, 35%);
 		font-size: 20px;
 	}
 `;
@@ -79,17 +78,20 @@ const Form = styled.form`
 `;
 
 const UpdateInput = styled.input`
+	width: 100%;
 	background: transparent;
 	outline: none;
 	border: none;
-	border-bottom: 1px solid #555;
+	color: hsl(234, 39%, 85%);
+	font-weight: 300;
+	border-bottom: 1px solid hsl(234, 39%, 85%);
 	padding: 5px;
 `;
 
 const UpdateBtn = styled.button`
 	width: 25px;
 	height: 25px;
-	border: 1px solid #333;
+	border: 1px solid hsl(234, 39%, 85%);
 	background: transparent;
 	margin-right: 5px;
 
@@ -110,7 +112,7 @@ const UpdateBtn = styled.button`
 	}
 
 	svg {
-		color: navy;
+		color: hsl(234, 39%, 85%);
 		transition: 0.3s;
 	}
 `;
