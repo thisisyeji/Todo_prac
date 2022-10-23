@@ -1,0 +1,12 @@
+{
+  "files": {
+    "main.css": "/Todo_prac/static/css/main.5b90888c.css",
+    "main.js": "/Todo_prac/static/js/main.1ffbdbf0.js",
+    "index.html": "/Todo_prac/index.html",
+    "main.1ffbdbf0.js.map": "/Todo_prac/static/js/main.1ffbdbf0.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.5b90888c.css",
+    "static/js/main.1ffbdbf0.js"
+  ]
+}
