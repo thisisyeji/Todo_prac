@@ -10,8 +10,8 @@ import {
 } from 'react-icons/md';
 
 const List = styled.div`
-	background-color: hsl(235, 24%, 19%);
-	border-bottom: 1px solid hsl(237, 14%, 26%);
+	background-color: ${(props) => props.theme.bg};
+	border-bottom: 1px solid ${(props) => props.theme.listBorder};
 	padding: 20px 15px;
 
 	display: flex;
@@ -23,7 +23,7 @@ const Btn = styled.button`
 	width: 25px;
 	height: 25px;
 	border-radius: 50%;
-	border: 1px solid hsl(234, 39%, 85%);
+	border: 1px solid ${(props) => props.theme.button};
 	background: transparent;
 	margin-right: 5px;
 
@@ -36,15 +36,14 @@ const Btn = styled.button`
 
 	&:hover {
 		transform: scale(1.1);
-		border-color: tomato;
-
+		background: linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%));
 		svg {
-			color: tomato;
+			color: #fff;
 		}
 	}
 
 	svg {
-		color: hsl(234, 39%, 85%);
+		color: ${(props) => props.theme.text};
 		transition: 0.3s;
 	}
 `;
@@ -53,13 +52,13 @@ const Text = styled.div`
 	display: flex;
 	justify-content: flex-start;
 	align-items: center;
-	color: hsl(234, 39%, 85%);
+	color: ${(props) => props.theme.text};
 	font-weight: 300;
 	gap: 10px;
 	text-decoration: ${(props) => (props.checked ? 'line-through' : 'none')};
 
 	svg {
-		color: hsl(233, 14%, 35%);
+		color: ${(props) => props.theme.checkBox};
 		font-size: 20px;
 	}
 `;
@@ -82,16 +81,17 @@ const UpdateInput = styled.input`
 	background: transparent;
 	outline: none;
 	border: none;
-	color: hsl(234, 39%, 85%);
+	color: ${(props) => props.theme.text};
+	font-size: 16px;
 	font-weight: 300;
-	border-bottom: 1px solid hsl(234, 39%, 85%);
+	border-bottom: 1px solid ${(props) => props.theme.text};
 	padding: 5px;
 `;
 
 const UpdateBtn = styled.button`
 	width: 25px;
 	height: 25px;
-	border: 1px solid hsl(234, 39%, 85%);
+	border: 1px solid ${(props) => props.theme.text};
 	background: transparent;
 	margin-right: 5px;
 
@@ -103,7 +103,7 @@ const UpdateBtn = styled.button`
 	transition: 0.3s;
 
 	&:hover {
-		background: navy;
+		background: rgba(22, 1, 168, 1);
 
 		svg {
 			transform: scale(1.3);
@@ -112,7 +112,7 @@ const UpdateBtn = styled.button`
 	}
 
 	svg {
-		color: hsl(234, 39%, 85%);
+		color: ${(props) => props.theme.text};
 		transition: 0.3s;
 	}
 `;

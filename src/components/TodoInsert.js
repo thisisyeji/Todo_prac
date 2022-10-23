@@ -6,7 +6,7 @@ import { useState, useCallback } from 'react';
 const InputBox = styled.form`
 	width: 100%;
 	height: 60px;
-	background: hsl(235, 24%, 19%);
+	background: ${(props) => props.theme.bg};
 	border-radius: 4px;
 	margin-bottom: 15px;
 
@@ -19,7 +19,7 @@ const InputBox = styled.form`
 		outline: none;
 		font-size: 18px;
 		font-weight: 300;
-		color: hsl(234, 39%, 85%);
+		color: ${(props) => props.theme.text};
 		padding: 10px;
 	}
 

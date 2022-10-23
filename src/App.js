@@ -1,9 +1,11 @@
 import TodoTemplate from './components/TodoTemplate';
 import TodoList from './components/TodoList';
 import TodoInsert from './components/TodoInsert';
-import { createGlobalStyle } from 'styled-components';
+import styled, { createGlobalStyle, ThemeProvider } from 'styled-components';
 import { useState, useCallback, useEffect, useRef } from 'react';
 import './App.css';
+import { lightTheme, darkTheme } from './themes';
+import { MdWbSunny, MdNightlightRound } from 'react-icons/md';
 
 const GlobalStyle = createGlobalStyle`
 	html, body, div, span, applet, object, iframe,
@@ -44,7 +46,7 @@ body {
   line-height: 1;
   width: 100%;
   height: 100vh;
-  background: hsl(235, 21%, 11%);
+  background: ${({ theme }) => theme.body};
 	font-family: 'Josefin Sans', sans-serif;
 }
 menu, ol, ul {
@@ -64,7 +66,34 @@ table {
 }
 `;
 
+const ThemeBtn = styled.button`
+	position: absolute;
+	top: 20px;
+	right: 0;
+	color: #efefef;
+	font-size: 2rem;
+	background: transparent;
+	border: none;
+	outline: none;
+	cursor: pointer;
+
+	svg {
+		transform: rotate(-30deg);
+	}
+
+	&:hover {
+		svg {
+			transform: scale(1.05) rotate(-45deg);
+		}
+	}
+`;
+
 function App() {
+	const [theme, setTheme] = useState('light');
+	const isDarkMode = theme === 'dark';
+
+	const onDark = () => setTheme(isDarkMode ? 'light' : 'dark');
+
 	const getTodos = () => {
 		const dummyLists = [
 			{
@@ -110,6 +139,7 @@ function App() {
 	}, []);
 
 	const onUpdate = (id, newToDo) => {
+		if (!newToDo) return alert('할 일을 입력하세요.');
 		setTodos((todos) =>
 			todos.map((todo) => (todo.id === id ? { ...todo, text: newToDo } : todo))
 		);
@@ -120,9 +150,12 @@ function App() {
 	}, [todos]);
 
 	return (
-		<>
+		<ThemeProvider theme={isDarkMode ? darkTheme : lightTheme}>
 			<GlobalStyle />
 			<TodoTemplate>
+				<ThemeBtn onClick={() => onDark()}>
+					{isDarkMode ? <MdWbSunny /> : <MdNightlightRound />}
+				</ThemeBtn>
 				<TodoInsert onInsert={onInsert} />
 				<TodoList
 					todos={todos}
@@ -131,7 +164,7 @@ function App() {
 					onUpdate={onUpdate}
 				/>
 			</TodoTemplate>
-		</>
+		</ThemeProvider>
 	);
 }
 

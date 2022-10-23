@@ -21,13 +21,13 @@ const TodoHeader = styled.div`
 	overflow: hidden;
 	background: transparent;
 	margin-top: 500px;
+	position: relative;
 
 	h1 {
 		height: 100px;
-		color: black;
 		background: transparent;
-		font-size: 3.5rem;
-		letter-spacing: 5px;
+		font-size: 3rem;
+		letter-spacing: 10px;
 		color: #fff;
 		text-shadow: 3px 3px 8px rgba(255, 255, 255, 0.7);
 		text-align: left;

@@ -5,16 +5,16 @@ import TodoListItem from './TodoListItem';
 const List = styled.div`
 	width: 40%;
 	height: 350px;
-	background: hsl(235, 24%, 19%);
+	background: ${(props) => props.theme.bg};
 	border-radius: 4px;
 	margin: 0 auto;
 	overflow-y: scroll;
 `;
 
 const Total = styled.div`
-	color: hsl(234, 39%, 85%);
+	color: ${(props) => props.theme.total};
 	text-align: right;
-	border-top: 1px solid hsl(234, 39%, 85%);
+	border-top: 1px solid ${(props) => props.theme.total};
 	margin-top: 10px;
 	padding: 15px 10px;
 `;
