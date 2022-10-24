@@ -39,8 +39,8 @@ Users should be able to:
 
 ### Screenshot
 
-- [라이트모드](./screenshot_light.png)
-- [다크모드](./screenshot_dark.png)
+![라이트모드](./screenshot_light.png)
+![다크모드](./screenshot_dark.png)
 
 ### Links
 
@@ -70,10 +70,10 @@ const onUpdate = (id, newToDo) => {
 
 ### Continued development
 
-추가하고 싶은 기능
+- 추가하고 싶은 기능
 
-- 투두 리스트 전체 개수 중 완료 체크된 개수 제외하기
-- 다크모드/라이트모드 로컬스토리지에 저장하기
+1. 투두 리스트 전체 개수 중 완료 체크된 개수 제외하기
+2. 다크모드/라이트모드 로컬스토리지에 저장하기
 
 ## Author
 
