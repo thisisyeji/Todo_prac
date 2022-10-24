@@ -16,8 +16,9 @@ const ToDoWrapper = styled.section`
 `;
 
 const TodoHeader = styled.div`
-	width: 30vw;
-	min-width: 400px;
+	width: 50vw;
+	max-width: 500px;
+	min-width: 330px;
 	overflow: hidden;
 	background: transparent;
 	margin-top: 500px;
@@ -37,6 +38,14 @@ const TodoHeader = styled.div`
 	div {
 		width: 100%;
 		overflow-y: scroll;
+	}
+
+	@media screen and (max-width: 768px) {
+		width: 60vw;
+	}
+
+	@media screen and (max-width: 375px) {
+		width: 340px;
 	}
 `;
 
