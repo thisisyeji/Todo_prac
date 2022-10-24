@@ -79,11 +79,12 @@ const ThemeBtn = styled.button`
 
 	svg {
 		transform: rotate(-30deg);
+		transition: 0.5s;
 	}
 
 	&:hover {
 		svg {
-			transform: scale(1.05) rotate(-45deg);
+			transform: scale(1.2) rotate(-60deg);
 		}
 	}
 `;
