@@ -39,8 +39,8 @@ Users should be able to:
 
 ### Screenshot
 
-![라이트모드](./screenshot_light.png)
-![다크모드](./screenshot_dark.png)
+![](./screenshot_light.png)
+![](./screenshot_dark.png)
 
 ### Links
 
