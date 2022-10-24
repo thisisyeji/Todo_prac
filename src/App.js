@@ -93,6 +93,8 @@ function App() {
 		const mode = localStorage.getItem('mode');
 		if (mode) {
 			return JSON.parse(mode);
+		} else {
+			return 'light';
 		}
 	};
 
