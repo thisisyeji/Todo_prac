@@ -89,7 +89,14 @@ const ThemeBtn = styled.button`
 `;
 
 function App() {
-	const [theme, setTheme] = useState('light');
+	const getDark = () => {
+		const mode = localStorage.getItem('mode');
+		if (mode) {
+			return JSON.parse(mode);
+		}
+	};
+
+	const [theme, setTheme] = useState(getDark());
 	const isDarkMode = theme === 'dark';
 
 	const onDark = () => setTheme(isDarkMode ? 'light' : 'dark');
@@ -148,6 +155,10 @@ function App() {
 	useEffect(() => {
 		localStorage.setItem('todos', JSON.stringify(todos));
 	}, [todos]);
+
+	useEffect(() => {
+		localStorage.setItem('mode', JSON.stringify(theme));
+	}, [theme]);
 
 	return (
 		<ThemeProvider theme={isDarkMode ? darkTheme : lightTheme}>
