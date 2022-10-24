@@ -33,7 +33,7 @@ const TodoList = ({ todos, onDelete, onToggle, onUpdate }) => {
 					/>
 				))}
 			</List>
-			<Total>{todos.length} items left</Total>
+			<Total>{todos.length} items on the list</Total>
 		</>
 	);
 };
