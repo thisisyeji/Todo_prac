@@ -1,12 +1,12 @@
 {
   "files": {
     "main.css": "/Todo_prac/static/css/main.5b90888c.css",
-    "main.js": "/Todo_prac/static/js/main.f4b9c4b1.js",
+    "main.js": "/Todo_prac/static/js/main.9cd43e5e.js",
     "index.html": "/Todo_prac/index.html",
-    "main.f4b9c4b1.js.map": "/Todo_prac/static/js/main.f4b9c4b1.js.map"
+    "main.9cd43e5e.js.map": "/Todo_prac/static/js/main.9cd43e5e.js.map"
   },
   "entrypoints": [
     "static/css/main.5b90888c.css",
-    "static/js/main.f4b9c4b1.js"
+    "static/js/main.9cd43e5e.js"
   ]
 }
