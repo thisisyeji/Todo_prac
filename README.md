@@ -21,7 +21,7 @@
 - 스크린 크기별 반응형 구현
 - 투두리스트 추가, 수정, 삭제
 - 완료된 투두리스트 체크
-- 투두리스트 전체 개수 표시
+- 투두리스트 남은 개수 표시
 - 다크모드/라이트모드 토글 기능
 - 로컬스토리지 저장 및 불러오기
 
@@ -67,11 +67,22 @@ const onUpdate = (id, newToDo) => {
 
 - ThemeProvider를 활용하여 다크모드/라이트 모드 토글
 
+- 투두 리스트 전체 개수 중 완료 체크된 개수 제외하기
+
+```js
+const undoneTasks = todos.filter((todo) => !todo.checked);
+	return (
+		<>
+		...생략...
+			<Total>{undoneTasks.length} items on the list</Total>
+		</>
+```
+
 ### Continued development
 
 - 추가하고 싶은 기능
 
-1. 투두 리스트 전체 개수 중 완료 체크된 개수 제외하기
+1. 투두 리스트 전체 개수 중 완료 체크된 개수 제외하기(완료)
 2. 다크모드/라이트모드 로컬스토리지에 저장하기(완료)
 
 ## Author
