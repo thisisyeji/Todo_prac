@@ -20,6 +20,7 @@ const Total = styled.div`
 `;
 
 const TodoList = ({ todos, onDelete, onToggle, onUpdate }) => {
+	const undoneTasks = todos.filter((todo) => !todo.checked);
 	return (
 		<>
 			<List>
@@ -33,7 +34,7 @@ const TodoList = ({ todos, onDelete, onToggle, onUpdate }) => {
 					/>
 				))}
 			</List>
-			<Total>{todos.length} items on the list</Total>
+			<Total>{undoneTasks.length} items on the list</Total>
 		</>
 	);
 };
